@@ -1,0 +1,737 @@
+#finch-checkout-overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: 0.4s opacity ease-out;
+  z-index: 1000;
+  opacity: 0;
+  font-family: Arial;
+}
+
+#finch-checkout-overlay.active {
+  opacity: 1;
+}
+
+#finch-checkout-overlay .finch-checkout-overlay-content {
+  align-self: center;
+}
+
+#finch-checkout-overlay .currency-selector {
+  position: relative;
+  width: 340px;
+  transition: 0.3s all linear;
+  z-index: 1001;
+}
+
+#finch-checkout-overlay .currency-selector button.btn-close {
+  position: absolute;
+  top: -110px;
+  right: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: solid 1px #a9a9a9;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+#finch-checkout-overlay .currency-selector button.btn-close:before,
+#finch-checkout-overlay .currency-selector button.btn-close:after {
+  position: absolute;
+  top: 7px;
+  left: 23px;
+  content: " ";
+  height: 35px;
+  width: 2px;
+  background-color: #a9a9a9;
+}
+
+#finch-checkout-overlay .currency-selector button.btn-close:before {
+  transform: rotate(45deg);
+}
+
+#finch-checkout-overlay .currency-selector button.btn-close:after {
+  transform: rotate(-45deg);
+}
+
+#finch-checkout-overlay .currency-selector .message {
+  margin-bottom: 48px;
+  font-size: 18px;
+  text-align: center;
+  color: #ffffff;
+}
+
+#finch-checkout-overlay .currency-selector .body {
+  text-align: center;
+}
+
+#finch-checkout-overlay .currency-selector .body .btn-currency {
+  display: inline-block;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s filter ease-out;
+}
+
+#finch-checkout-overlay .currency-selector .body .btn-currency:hover {
+  filter: brightness(125%);
+}
+
+#finch-checkout-overlay .currency-selector .body .btn-currency .label {
+  display: block;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+
+#finch-checkout-overlay .currency-selector .body .btn-currency:first-child {
+  margin-right: 50px;
+}
+
+#modal-container {
+  display: flex;
+  justify-content: center;
+}
+
+#modal-container .content-root {
+  align-self: center;
+}
+
+#modal-container.active div.modal {
+  opacity: 1;
+}
+
+#modal-container.active div.modal {
+  transform: translateY(0);
+}
+
+#modal-container div.modal {
+  position: relative;
+  align-self: center;
+  width: 340px;
+  border-radius: 12px;
+  font-family: Arial;
+  background-color: #ffffff;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+  transition: 0.3s all linear;
+  transform: translateY(80px);
+  z-index: 1001;
+  opacity: 0;
+}
+
+#modal-container div.modal button.btn-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+  outline: none;
+  cursor: pointer;
+}
+
+#modal-container div.modal button.btn-close.disabled {
+  display: none;
+}
+
+#modal-container div.modal button.btn-close:before,
+#modal-container div.modal button.btn-close:after {
+  position: absolute;
+  top: 14px;
+  left: 23px;
+  content: " ";
+  height: 20px;
+  width: 3px;
+  background-color: #d8d8d8;
+}
+
+#modal-container div.modal button.btn-close:before {
+  transform: rotate(45deg);
+}
+
+#modal-container div.modal button.btn-close:after {
+  transform: rotate(-45deg);
+}
+
+#modal-container div.modal div.modal-content {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+#modal-container div.modal-content div.header {
+  padding: 30px 20px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+#modal-container div.modal-content.eth div.header {
+  background-image: linear-gradient(304deg, #56d4ff, #6570f3);
+}
+
+#modal-container div.modal-content.btc div.header {
+  background-image: linear-gradient(304deg, #ff5656, #f3a765);
+}
+
+#modal-container div.payment div.header {
+  height: 160px;
+}
+
+#modal-container div.modal-content div.title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+#modal-container div.modal-content p.message {
+  margin: 6px auto 0;
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.47;
+  opacity: 0.84;
+  letter-spacing: 0.08em;
+}
+
+#modal-container div.modal-content div.amount {
+  margin-top: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+#modal-container div.modal-content div.converted-amount {
+  font-size: 13px;
+  line-height: 1.38;
+  text-align: center;
+  color: #ffffff;
+  opacity: 0.84;
+}
+
+#modal-container div.modal-content div.payment-qrcode-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 20px auto 10px;
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.12);
+}
+
+#modal-container div.modal-content div.payment-qrcode-wrapper div.qrcode {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+#modal-container div.modal-content div.body {
+  padding: 75px 0 35px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+#modal-container div.modal-content div.body div.address {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #4a4a4a;
+  text-align: center;
+  opacity: 0.84;
+}
+
+#modal-container div.modal-content div.body button.copy-address {
+  display: inline-block;
+  margin: 15px auto 0;
+  padding: 8px 14px;
+  border-radius: 24px;
+  background-color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+#modal-container div.modal-content.eth div.body button.copy-address {
+  border: solid 1px #5f9bf9;
+  color: #5f9bf9;
+}
+
+#modal-container div.modal-content.eth div.body button.copy-address:hover {
+  background-color: #5f9bf9;
+  color: #ffffff;
+}
+
+#modal-container div.modal-content.btc div.body button.copy-address {
+  border: solid 1px #f9835f;
+  color: #f9835f;
+}
+
+#modal-container div.modal-content.btc div.body button.copy-address:hover {
+  background-color: #f9835f;
+  color: #ffffff;
+}
+
+#modal-container div.modal-content div.body div.separator {
+  position: relative;
+  height: 1px;
+  width: 300px;
+  margin: 34px auto;
+  background-color: #f0f0f0;
+}
+
+#modal-container div.modal-content div.body div.separator span.or {
+  position: absolute;
+  top: -10px;
+  left: calc(50% - 15px);
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  color: #a4a4a4;
+  background-color: #ffffff;
+}
+
+#modal-container div.modal-content div.body img.pay-with-metamask {
+  cursor: pointer;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.12);
+}
+
+#modal-container div.modal-content div.body div.metamask-error {
+  margin-top: 10px;
+}
+
+#modal-container div.modal-content div.body a.open-in-wallet {
+  display: inline-block;
+  padding: 15px 47px;
+  border: solid 1px #ffffff;
+  box-shadow: 0px 0px 0px 4px #ff8965;
+  background-color: #ff8965;
+  font-size: 13px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+}
+
+#modal-container
+  div.modal-content
+  div.body
+  div.metamask-error
+  div.metamask-error-message {
+  background-color: #fff0f0;
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+#modal-container div.modal-content div.footer {
+  display: flex;
+  padding: 20px;
+  border-top: solid 1px #ededed;
+  border-radius: 12px;
+  background-color: #fbfbfb;
+}
+
+#modal-container div.modal-content div.footer div.footer-left {
+  width: 55px;
+  height: 24px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #4a4a4a;
+  align-self: center;
+}
+
+#modal-container div.modal-content div.footer div.footer-right {
+  margin-left: 24px;
+  align-self: center;
+}
+
+#modal-container div.modal-content div.footer div.footer-right div.rate {
+  opacity: 0.84;
+  font-size: 13px;
+  line-height: 1.38;
+  color: #4a4a4a;
+}
+
+#modal-container
+  div.modal-content
+  div.footer
+  div.footer-right
+  div.rate
+  span.bold {
+  font-weight: bold;
+}
+
+#modal-container div.modal-content div.network {
+  font-size: 12px;
+  text-align: center;
+  padding: 8px;
+  border-top: solid 1px #ededed;
+  background-color: #f1f1f1;
+  font-weight: bold;
+  color: #666;
+}
+
+#modal-container
+  div.modal-content
+  div.footer
+  div.footer-right
+  div.footer-message {
+  margin-top: 2px;
+  opacity: 0.6;
+  font-size: 11px;
+  color: #4e4e4e;
+}
+
+#modal-container
+  div.modal-content
+  div.footer
+  div.footer-right
+  div.footer-message
+  span.bold {
+  font-weight: bold;
+}
+
+#modal-container div.confirmation div.body {
+  height: 357px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+#modal-container div.modal-content div.body div.confirmations {
+  font-size: 50px;
+  font-weight: 500;
+  text-align: center;
+}
+
+#modal-container div.modal-content.eth div.body div.confirmations {
+  color: #5f9bf9;
+}
+
+#modal-container div.modal-content.btc div.body div.confirmations {
+  color: #f9945f;
+}
+
+#modal-container div.modal-content div.body div.progress-bar {
+  width: 300px;
+  height: 6px;
+  margin: 38px auto 0;
+  border-radius: 3px;
+}
+
+#modal-container div.modal-content.eth div.body div.progress-bar {
+  background-color: #e4edfc;
+}
+
+#modal-container div.modal-content.btc div.body div.progress-bar {
+  background-color: #fee8e1;
+}
+
+#modal-container div.modal-content div.body div.progress-bar div.progress {
+  height: 6px;
+  border-radius: 3px;
+}
+
+#modal-container div.modal-content.eth div.body div.progress-bar div.progress {
+  background-color: #5f9bf9;
+}
+
+#modal-container div.modal-content.btc div.body div.progress-bar div.progress {
+  background-color: #f9835f;
+}
+
+#modal-container div.modal-content div.body div.message {
+  width: 300px;
+  margin: 86px auto 43px;
+  opacity: 0.84;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  color: #4a4a4a;
+  word-break: break-word;
+}
+
+#modal-container div.modal-content div.icon-error {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 44px;
+  border: solid 0.7px rgba(230, 76, 78, 0.3);
+  border-radius: 100%;
+  background-color: rgba(230, 76, 78, 0.1);
+}
+
+#modal-container div.modal-content div.icon-error img {
+  align-self: center;
+  margin: 0 auto;
+}
+
+#modal-container div.modal-content div.icon-check {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 44px;
+  border-radius: 100%;
+}
+
+#modal-container div.modal-content.eth div.icon-check {
+  border: solid 0.7px rgba(95, 155, 249, 0.3);
+  background-color: rgba(95, 155, 249, 0.1);
+}
+
+#modal-container div.modal-content.btc div.icon-check {
+  border: solid 0.7px #fdd9c2;
+  background-color: #fff1ed;
+}
+
+#modal-container div.simple {
+  height: 490px !important;
+  padding-top: 100px;
+}
+
+#modal-container div.modal-content div.icon-check:after {
+  position: absolute;
+  top: 22px;
+  left: 32px;
+  content: "";
+  display: block;
+  width: 14px;
+  height: 28px;
+  border-style: solid;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+}
+
+#modal-container div.modal-content.eth div.icon-check:after {
+  border-color: #5f9bf9;
+}
+
+#modal-container div.modal-content.btc div.icon-check:after {
+  border-color: #f9835f;
+}
+
+#modal-container div.simple div.title {
+  color: #4a4a4a;
+}
+
+#modal-container div.simple p.message {
+  color: #4a4a4a;
+  opacity: 0.84;
+}
+
+/* Spinnner */
+#modal-container.active div.sk-fading-circle {
+  display: none;
+}
+
+.sk-fading-circle {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  align-self: center;
+}
+
+.sk-fading-circle .sk-circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.sk-fading-circle .sk-circle:before {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 15%;
+  height: 15%;
+  background-color: #ffffff;
+  border-radius: 100%;
+  -webkit-animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+  animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+}
+.sk-fading-circle .sk-circle2 {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+.sk-fading-circle .sk-circle3 {
+  -webkit-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+.sk-fading-circle .sk-circle4 {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.sk-fading-circle .sk-circle5 {
+  -webkit-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+.sk-fading-circle .sk-circle6 {
+  -webkit-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+.sk-fading-circle .sk-circle7 {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.sk-fading-circle .sk-circle8 {
+  -webkit-transform: rotate(210deg);
+  -ms-transform: rotate(210deg);
+  transform: rotate(210deg);
+}
+.sk-fading-circle .sk-circle9 {
+  -webkit-transform: rotate(240deg);
+  -ms-transform: rotate(240deg);
+  transform: rotate(240deg);
+}
+.sk-fading-circle .sk-circle10 {
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.sk-fading-circle .sk-circle11 {
+  -webkit-transform: rotate(300deg);
+  -ms-transform: rotate(300deg);
+  transform: rotate(300deg);
+}
+.sk-fading-circle .sk-circle12 {
+  -webkit-transform: rotate(330deg);
+  -ms-transform: rotate(330deg);
+  transform: rotate(330deg);
+}
+.sk-fading-circle .sk-circle2:before {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+.sk-fading-circle .sk-circle3:before {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+.sk-fading-circle .sk-circle4:before {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+.sk-fading-circle .sk-circle5:before {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+.sk-fading-circle .sk-circle6:before {
+  -webkit-animation-delay: -0.7s;
+  animation-delay: -0.7s;
+}
+.sk-fading-circle .sk-circle7:before {
+  -webkit-animation-delay: -0.6s;
+  animation-delay: -0.6s;
+}
+.sk-fading-circle .sk-circle8:before {
+  -webkit-animation-delay: -0.5s;
+  animation-delay: -0.5s;
+}
+.sk-fading-circle .sk-circle9:before {
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s;
+}
+.sk-fading-circle .sk-circle10:before {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+.sk-fading-circle .sk-circle11:before {
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s;
+}
+.sk-fading-circle .sk-circle12:before {
+  -webkit-animation-delay: -0.1s;
+  animation-delay: -0.1s;
+}
+
+@-webkit-keyframes sk-circleFadeDelay {
+  0%,
+  39%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes sk-circleFadeDelay {
+  0%,
+  39%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 460px) {
+  #finch-checkout-overlay .finch-checkout-overlay-content {
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+  }
+
+  #modal-container div.modal {
+    width: 100%;
+    height: 100%;
+  }
+
+  #finch-checkout-overlay div.currency-selector {
+    position: absolute;
+    top: calc(50% - 80px);
+  }
+
+  #finch-checkout-overlay div.currency-selector p.message {
+    width: 300px;
+    margin: 0 auto 20px;
+    line-height: 1.4;
+  }
+
+  #finch-checkout-overlay .finch-checkout-overlay-content > div,
+  #modal-container,
+  #modal-container div.content-root,
+  #modal-container div.content-root > div {
+    height: 100%;
+  }
+
+  #modal-container div.modal-content {
+    position: relative;
+  }
+
+  #modal-container div.modal-content div.network {
+    position: absolute;
+    bottom: 71px;
+    left: 0;
+    right: 0;
+  }
+
+  #modal-container div.modal-content div.footer {
+    position: absolute;
+    bottom: 0;
+  }
+}
