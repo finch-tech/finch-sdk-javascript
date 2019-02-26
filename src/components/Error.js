@@ -2,6 +2,14 @@ import Component from "./Component";
 import errorImg from "../images/error@2x.png";
 
 export default class PaymentError extends Component {
+  onMounted() {
+    let closeButton = this.modal.el.querySelector(".btn-close");
+
+    if (closeButton.classList.contains("disabled")) {
+      closeButton.classList.remove("disabled");
+    }
+  }
+
   render() {
     const message = this.navigatorParams.dataset.message;
 

@@ -533,6 +533,7 @@
 }
 
 #modal-container div.simple p.message {
+  padding: 0 30px;
   color: #4a4a4a;
   opacity: 0.84;
 }
