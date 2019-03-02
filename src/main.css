@@ -344,7 +344,8 @@
   display: flex;
   padding: 20px;
   border-top: solid 1px #ededed;
-  border-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   background-color: #fbfbfb;
 }
 
@@ -700,11 +701,15 @@
   #modal-container div.modal {
     width: 100%;
     height: 100%;
+    max-height: 555px;
+    width: 300px;
   }
 
   #finch-checkout-overlay div.currency-selector {
     position: absolute;
     top: calc(50% - 80px);
+    left: calc(50% - 140px);
+    width: 280px;
   }
 
   #finch-checkout-overlay div.currency-selector p.message {
@@ -724,15 +729,36 @@
     position: relative;
   }
 
-  #modal-container div.modal-content div.network {
-    position: absolute;
-    bottom: 71px;
-    left: 0;
-    right: 0;
+  #modal-container div.modal-content div.amount {
+    font-size: 28px;
+  }
+
+  #modal-container div.modal-content p.message {
+    font-size: 11px;
+  }
+
+  #modal-container div.modal-content div.body {
+    padding: 68px 0 35px;
+  }
+
+  #modal-container div.modal-content div.body div.separator {
+    margin: 24px auto;
   }
 
   #modal-container div.modal-content div.footer {
     position: absolute;
     bottom: 0;
+    padding: 12px 18px;
+  }
+
+  #modal-container div.modal-content div.network {
+    position: absolute;
+    bottom: 55px;
+    left: 0;
+    right: 0;
+  }
+
+  #modal-container div.modal-content div.footer div.footer-right {
+    margin-left: 14px;
   }
 }

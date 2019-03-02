@@ -211,7 +211,7 @@ export default class Payment extends Component {
                 <div class="footer">
                     <div class="timer footer-left">15:00</div>
                     <div class="footer-right">
-                        <div class="rate">Currency Rate <span class="bold">1${currency.toUpperCase()} = ${(
+                        <div class="rate"><span class="bold">1${currency.toUpperCase()} = ${(
       payment.price / payment.charge
     ).toFixed(2)} ${payment.fiat.toUpperCase()}</span></div>
                         <div class="footer-message">This payment modal is valid until: <span class="bold">${expiresAt}</span></div>
