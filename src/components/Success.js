@@ -4,14 +4,11 @@ export default class Success extends Component {
   onMounted() {
     this.modal.el.querySelector(".btn-close").classList.remove("disabled");
 
-    if (this.dataset.voucher) return;
-
     const dataset = this.dataset;
     this.apiClient
       .createVoucher(dataset.payment.id, dataset.sessionToken)
       .then(data => {
-        this.dataset.voucher = data.voucher;
-        this.onSuccess(this.dataset.voucher);
+        this.onSuccess(data.voucher);
       });
   }
 
